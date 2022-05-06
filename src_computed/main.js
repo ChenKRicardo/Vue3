@@ -1,0 +1,7 @@
+//引入createApp工厂函数
+import { createApp } from 'vue'
+import App from './App.vue'
+
+// createApp(App).mount('#app')
+const app = createApp(App)
+app.mount('#app')

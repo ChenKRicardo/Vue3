@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let person = {
+            name: "陈康",
+            age: 18
+        }
+        // Vue3响应式
+        const p = new Proxy(person, {
+            get(target, propName) {
+                console.log(target, propName);
+                return Reflect.get(target, propName)
+            },
+            set(target, propName, value) {
+                return Reflect.set(target, propName, value)
+            },
+            deleteProperty(target, propName) {
+                return Reflect.deleteProperty(target, propName)
+            }
+        })
+    </script>
+</body>
+
+</html>
